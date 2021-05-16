@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FireBaseEcommerce">
-        <activity android:name=".SingleProduct"></activity>
+        <activity android:name=".SingleFacture"></activity>
+        <activity android:name=".Facture_List" />
+        <activity android:name=".SingleProduct" />
         <activity android:name=".Products_List" />
         <activity android:name=".Facture_Create" />
         <activity android:name=".MainActivity">

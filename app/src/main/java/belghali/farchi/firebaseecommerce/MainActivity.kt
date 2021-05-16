@@ -58,5 +58,9 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(applicationContext, Products_List::class.java)
             startActivity(intent)
         }
+        go_toList_OfFactures.setOnClickListener {
+            var intent = Intent(applicationContext, Facture_List::class.java)
+            startActivity(intent)
+        }
     }
 }
