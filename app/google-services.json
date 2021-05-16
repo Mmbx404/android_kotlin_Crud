@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "493028861970",
+    "firebase_url": "https://androidecommerce-1456d-default-rtdb.firebaseio.com",
+    "project_id": "androidecommerce-1456d",
+    "storage_bucket": "androidecommerce-1456d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493028861970:android:28274ce4a1a9f4365f10cb",
+        "android_client_info": {
+          "package_name": "belghali.farchi.firebaseecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493028861970-7n2k4trofv3eq1jm2uji0m8atg1hvdil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_VSWZCjrSheoJ8Vhuvx6ETXEAzdx2YR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493028861970-7n2k4trofv3eq1jm2uji0m8atg1hvdil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
