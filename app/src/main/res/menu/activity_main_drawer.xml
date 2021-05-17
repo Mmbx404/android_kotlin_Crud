@@ -6,19 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/create_product_nav_item"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_add_button"
             android:title="Create Product" />
         <item
             android:id="@+id/create_facture_nav_item"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_add_button"
             android:title="Create Facture" />
         <item
             android:id="@+id/facture_list_nav_item"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_list"
             android:title="List Of Factures" />
         <item
             android:id="@+id/prodcut_list_nav_item"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_list"
             android:title="List Of Products" />
+        <item
+            android:id="@+id/logout_item"
+            android:icon="@drawable/ic_power_off"
+            android:title="Logout" />
     </group>
 </menu>

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_facture__create.*
 import kotlinx.android.synthetic.main.nav_product_list.*
@@ -75,6 +76,14 @@ class Products_List : AppCompatActivity() {
                 }
                 R.id.prodcut_list_nav_item -> {
                     val intent = Intent(applicationContext, Products_List::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.logout_item -> {
+                    val intent = Intent(applicationContext, LogInActivity::class.java)
+                    val auth = FirebaseAuth.getInstance()
+                    auth.signOut()
                     startActivity(intent)
                     finish()
                     true
