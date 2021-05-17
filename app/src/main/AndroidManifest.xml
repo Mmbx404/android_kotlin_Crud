@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FireBaseEcommerce">
-        <activity android:name=".SingleFacture"></activity>
-        <activity android:name=".Facture_List" />
-        <activity android:name=".SingleProduct" />
-        <activity android:name=".Products_List" />
-        <activity android:name=".Facture_Create" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SingleFacture" />
+        <activity android:name=".Facture_List" />
+        <activity android:name=".SingleProduct" />
+        <activity android:name=".Products_List" />
+        <activity android:name=".Facture_Create" />
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 
