@@ -7,13 +7,15 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_single_product.*
+import kotlinx.android.synthetic.main.nav_single_product.*
 
 class SingleProduct : AppCompatActivity() {
     lateinit var firebaseDatabase: FirebaseDatabase
     lateinit var dataBaseReference : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_single_product)
+        setContentView(R.layout.nav_single_product)
+        initDrawerFunctions()
         val selectedProduct = intent.getSerializableExtra("product") as? Product
         val selectedKey = intent.getStringExtra("productKey")
         if (selectedKey != null && selectedProduct != null) {
@@ -40,6 +42,7 @@ class SingleProduct : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Product Removed Successfully", Toast.LENGTH_LONG).show()
                     val intent = Intent(applicationContext, Products_List::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -54,5 +57,38 @@ class SingleProduct : AppCompatActivity() {
         intent.putExtra("product", product)
         intent.putExtra("key", key)
         startActivity(intent)
+        finish()
+    }
+
+    fun initDrawerFunctions() {
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.create_product_nav_item -> {
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.create_facture_nav_item -> {
+                    val intent = Intent(applicationContext, Facture_Create::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.facture_list_nav_item -> {
+                    val intent = Intent(applicationContext, Facture_List::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.prodcut_list_nav_item -> {
+                    val intent = Intent(applicationContext, Products_List::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_facture__create.*
 import kotlinx.android.synthetic.main.activity_facture__list.*
+import kotlinx.android.synthetic.main.nav_facture_create.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -28,13 +29,12 @@ class Facture_Create : AppCompatActivity() {
     private lateinit var selectedKey : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_facture__create)
+        setContentView(R.layout.nav_facture_create)
+        initDrawerFunctions()
+        chosenProductsWithQuantity = ArrayList()
         if (intent.getSerializableExtra("facture") != null && intent.getStringExtra("key") != null) {
             selectedFacture = (intent.getSerializableExtra("facture") as? Facture)!!
             selectedKey = intent.getStringExtra("key").toString()
-        }
-        chosenProductsWithQuantity = ArrayList()
-        if (selectedFacture != null && selectedKey != null) {
             chosenProductsWithQuantity.addAll(selectedFacture.products)
             secondAdapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, chosenProductsWithQuantity)
             list_Of_Products.adapter = secondAdapter
@@ -115,6 +115,7 @@ class Facture_Create : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Facture Updated successfully", Toast.LENGTH_LONG).show()
                     val itent = Intent(applicationContext, Facture_List::class.java)
                     startActivity(itent)
+                    finish()
                 }
                 else {
                     Toast.makeText(applicationContext, "Facture Saved successfully", Toast.LENGTH_LONG).show()
@@ -124,10 +125,45 @@ class Facture_Create : AppCompatActivity() {
                     chosenProductsWithQuantity = ArrayList()
                     secondAdapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, chosenProductsWithQuantity)
                     list_Of_Products.adapter = secondAdapter
+                    val itent = Intent(applicationContext, Facture_List::class.java)
+                    startActivity(itent)
+                    finish()
                 }
             }
         } else {
             Toast.makeText(applicationContext, "Please Give your first and last name with chosen Products and Quantities", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun initDrawerFunctions() {
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.create_product_nav_item -> {
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.create_facture_nav_item -> {
+                    val intent = Intent(applicationContext, Facture_Create::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.facture_list_nav_item -> {
+                    val intent = Intent(applicationContext, Facture_List::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.prodcut_list_nav_item -> {
+                    val intent = Intent(applicationContext, Products_List::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else -> false
+            }
         }
     }
 }
