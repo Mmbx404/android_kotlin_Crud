@@ -106,13 +106,13 @@ class Facture_Create : AppCompatActivity() {
             val newFacture = Facture(client_nameValue.text.toString(),client_lastName.text.toString(),chosenProductsWithQuantity)
             dataBaseReference = firebaseDatabase.getReference("factures")
             val ref : String
-            if (selectedFacture != null && selectedKey != null) {
+            if (intent.getSerializableExtra("facture") != null && intent.getStringExtra("key") != null) {
                 ref = selectedKey
             } else {
                 ref = UUID.randomUUID().toString()
             }
             dataBaseReference.child(ref).setValue(newFacture).addOnSuccessListener {
-                if (selectedFacture != null && selectedKey != null) {
+                if (intent.getSerializableExtra("facture") != null && intent.getStringExtra("key") != null) {
                     Toast.makeText(applicationContext, "Facture Updated successfully", Toast.LENGTH_LONG).show()
                     val itent = Intent(applicationContext, Facture_List::class.java)
                     startActivity(itent)
